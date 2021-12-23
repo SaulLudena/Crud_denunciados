@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Listado</title>
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+		
+	<div class="row justify-content-center">	
+		<div class="col-md-10">
+			<h1 class="mt-4">Lista de denunciados - Comisaria El agustino</h1>
+			<div class="col-auto mt-5">
+				<a th:href="@{/denunciado/formulario}" class="btn btn-success btn-lg"> <i class="fas fa-plus"></i> Nueva denuncia</a>
+			</div>
+			<table class="table table-hover mt-5">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>DNI</th>
+						<th>Nacionalidad</th>
+						<th>Distrito de proveniencia</th>
+						<th>Con orden de captura ?</th>
+						<th>Fecha de la denuncia</th>
+						<th>Acciones</th>										
+					</tr>
+		
+				</thead>
+				
+				<tbody>		
+					<tr th:each="item: ${listaDenunciado}" >
+						<td th:text="${item.cod_denun}" ></td>
+						<td th:text="${item.nom_denun}"></td>
+						<td th:text="${item.ape_denun}"></td>
+						<td th:text="${item.dni_denun}"></td>
+						<td th:text="${item.nacio_denun}"></td>
+						<td th:text="${item.distri_denun}"></td>
+						<td th:text="${item.orden_denun}" id="orden"></td>
+						<td th:text="${item.fecha_denun}"></td>
+						<td>
+							<a th:href="@{/denunciado/form/} + ${item.cod_denun}" class="btn btn-warning">Editar</a>
+							<a th:href="@{/denunciado/eliminar/} + ${item.cod_denun}" onclick="return confirm('Desea eliminar este registro ?')" class="btn btn-danger">Eliminar</a>
+						</td>
+					</tr>					
+				</tbody>
+				
+			</table>
+		</div>
+	</div>
+
+	
+
+</body>
+</html>

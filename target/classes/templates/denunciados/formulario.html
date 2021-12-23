@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Formulario</title>
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+	<div class="row justify-content-center">
+		<div class="col-auto mt-6">
+			<form th:action="@{/denunciado/formulario}" th:object="${denunciado}" method="POST">
+				<h1 class="mt-4 text-center" >Agregar denuncia</h1>
+				<div class="form-group mt-4">
+					<label>Codigo Autogenerado</label>
+					<input type="text" disabled value="Autogenerado" required class="form-control">
+				</div>
+
+				<div class="form-group mt-2">
+					<label>Ingrese Nombre</label>
+					<input type="text" th:field="*{nom_denun}" required class="form-control">
+				</div>
+
+				<div class="form-group mt-2">
+					<label>Ingrese Apellido</label>
+					<input type="text" th:field="*{ape_denun}" required class="form-control"> 
+				</div>
+				<div class="form-group mt-2">
+					<label>Ingrese DNI</label>
+					<input type="text" th:field="*{dni_denun}" required class="form-control">
+				</div>
+				<hr>
+				<div class="form-group mt-2">
+					<label>Nacionalidad:</label>
+					<div>
+						<input type="radio"  th:value="Peruano" th:field="*{nacio_denun}" required class="form-check-input">Peruano<br>
+						<input type="radio"  th:value="Otro" th:field="*{nacio_denun}" required class="form-check-input">Otro
+					</div>
+				</div>
+				<hr>
+				<div class="form-group mt-2">
+					<label>Seleccione distrito de proveniencia</label><br>
+					<select th:field="*{distri_denun}" required class="form-select">
+						<option th:value="ANCON"  th:field="*{distri_denun}"  				th:text="'ANCON'"></option>
+						<option th:value="ATE" th:field="*{distri_denun}"  					th:text="'ATE'"></option>
+						<option th:value="BARRANCO" th:field="*{distri_denun}" 				th:text="'BARRANCO'"></option>
+						<option th:value="BREÑA" th:field="*{distri_denun}"  				th:text="'BREÑA'"></option>
+						<option th:value="CARABAYLLO" th:field="*{distri_denun}" 			th:text="'CARABAYLLO'"></option>
+						<option th:value="CHACLACAYO" th:field="*{distri_denun}"			th:text="'CHACLACAYO'"></option>
+						<option th:value="CHORRILLOS" th:field="*{distri_denun}" 			th:text="'CHORRILLOS'"></option>
+						<option th:value="CIENEGUILLA" th:field="*{distri_denun}" 			th:text="'CIENEGUILLA'"></option>
+						<option th:value="COMAS" th:field="*{distri_denun}" 				th:text="'COMAS'"></option>
+						<option th:value="EL_AGUSTINO" th:field="*{distri_denun}" 			th:text="'EL_AGUSTINO'"></option>
+						<option th:value="INDEPENDENCIA" th:field="*{distri_denun}"  		th:text="'INDEPENDENCIA'"></option>
+						<option th:value="JESUS_MARIA" th:field="*{distri_denun}" 			th:text="'JESUS_MARIA'"></option>
+						<option th:value="LA_MOLINA" th:field="*{distri_denun}" 			th:text="'LA_MOLINA'"></option>
+						<option th:value="LA_VICTORIA" th:field="*{distri_denun}" 			th:text="'LA_VICTORIA'"></option>
+						<option th:value="LIMA" th:field="*{distri_denun}" 					th:text="'LIMA'"></option>
+						<option th:value="LINCE" th:field="*{distri_denun}" 				th:text="'LINCE'"></option>
+						<option th:value="LOS_OLIVOS" th:field="*{distri_denun}"			th:text="'LOS_OLIVOS'"></option>
+						<option th:value="LURIGANCHO" th:field="*{distri_denun}" 			th:text="'LURIGANCHO'"></option>
+						<option th:value="LURIN" th:field="*{distri_denun}" 				th:text="'LURIN'"></option>
+						<option th:value="MAGDALENA_DEL_MAR" th:field="*{distri_denun}" 	th:text="'MAGDALENA_DEL_MAR'"></option>
+						<option th:value="MIRAFLORES" th:field="*{distri_denun}" 			th:text="'MIRAFLORES'"></option>
+						<option th:value="PACHACAMAC" th:field="*{distri_denun}" 			th:text="'PACHACAMAC'"></option>
+						<option th:value="PUCUSANA" th:field="*{distri_denun}"				th:text="'PUCUSANA'"></option>
+						<option th:value="PUEBLO_LIBRE" th:field="*{distri_denun}" 			th:text="'PUEBLO_LIBRE'"></option>
+						<option th:value="PUENTE_PIEDRA" th:field="*{distri_denun}" 		th:text="'PUENTE_PIEDRA'"></option>
+						<option th:value="PUNTA_HERMOSA" th:field="*{distri_denun}" 		th:text="'PUNTA_HERMOSA'"></option>
+						<option th:value="PUNTA_NEGRA" th:field="*{distri_denun}" 			th:text="'PUNTA_NEGRA'"></option>
+						<option th:value="RIMAC" th:field="*{distri_denun}" 				th:text="'RIMAC'"></option>
+						<option th:value="SAN_BARTOLO" th:field="*{distri_denun}" 			th:text="'SAN_BARTOLO'"></option>
+						<option th:value="SAN_BORJA" th:field="*{distri_denun}" 			th:text="'SAN_BORJA'"></option>
+						<option th:value="SAN_ISIDRO" th:field="*{distri_denun}" 			th:text="'SAN_ISIDRO'"></option>
+						<option th:value="SAN_JUAN_DE_LURIGANCHO" th:field="*{distri_denun}" th:text="'SAN_JUAN_DE_LURIGANCHO'"></option>
+						<option th:value="SAN_JUAN_DE_MIRAFLORES" th:field="*{distri_denun}" th:text="'SAN_JUAN_DE_MIRAFLORES'"></option>
+						<option th:value="SAN_LUIS" th:field="*{distri_denun}" 				th:text="'SAN_LUIS'"></option>
+						<option th:value="SAN_MARTIN_DE_PORRES" th:field="*{distri_denun}" th:text="'SAN_MARTIN_DE_PORRES'"></option>
+						<option th:value="SAN_MIGUEL" th:field="*{distri_denun}" 			th:text="'SAN_MIGUEL'"></option>
+						<option th:value="SANTA_ANITA" th:field="*{distri_denun}" 			th:text="'SANTA_ANITA'"></option>
+						<option th:value="SANTA_MARIA_DEL_MAR" th:field="*{distri_denun}"   th:text="'SANTA_MARIA_DEL_MAR'"></option>
+						<option th:value="SANTA_ROSA" th:field="*{distri_denun}" 			th:text="'SANTA_ROSA'"></option>
+						<option th:value="SANTIAGO_DE_SURCO" th:field="*{distri_denun}" 	th:text="'SANTIAGO_DE_SURCO'"></option>
+						<option th:value="SURQUILLO" th:field="*{distri_denun}" 			th:text="'SURQUILLO'"></option>
+						<option value="VILLA_EL_SALVADOR" th:field="*{distri_denun}" 		th:text="'VILLA_EL_SALVADOR'"></option>
+						<option value="VILLA_MARIA_DEL_TRIUNFO" th:field="*{distri_denun}"  th:text="'VILLA_MARIA_DEL_TRIUNFO'"></option>
+					</select>
+				</div>
+				
+				<div class="form-group mt-2">
+					<label>Con orden de captura ?:</label><br>
+					<input type="checkbox" th:value="si" th:field="*{orden_denun}" class="form-check-input"><label>Sí</label>
+				</div>
+				<hr>
+				<div class="form-group mt-2">
+					<label>Fecha de denuncia</label><br>
+					<input type="date" th:field="*{fecha_denun}">
+				</div>
+				<div class="form-group mt-2">
+					<input type="hidden" th:field="*{cod_denun}">
+				</div>
+				<div class="form-group mt-2">
+					<button type="submit" class="btn btn-success">Registrar</button>
+					<a th:href="@{/denunciado/listar}" class="btn btn-primary">Regresar</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	
+</body>
+</html>
